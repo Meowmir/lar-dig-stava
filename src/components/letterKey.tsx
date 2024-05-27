@@ -5,11 +5,12 @@ export default function LetterKey({letter} : {letter: string}) {
     <Box sx={{
       padding: 2,
       border: '1px solid grey',
-      width: 50,
-      height: 50,
+      width: 90,
+      height: 90,
       display: "flex",
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
+      fontSize: 30
     }}>
         {letter}
     </Box>

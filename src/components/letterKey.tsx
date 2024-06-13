@@ -1,18 +1,10 @@
-import {Box} from "@mui/material";
-import TouchRipple from "@mui/material/ButtonBase/TouchRipple";
-import {useRef} from "react";
+import {Button} from "@mui/material";
 
-export default function LetterKey({letter} : {letter: string}) {
-  const rippleRef = useRef(null)
-  const onRippleStart = (e) => {
-    rippleRef.current.start(e);
-  };
-  const onRippleStop = (e) => {
-    rippleRef.current.stop(e);
-  };
+export default function LetterKey({letter, onClick: handleClick} : {letter: string,onClick: (letter: string) => void}) {
+  //const [newLetter, setNewLetter] = useState<string>("")
 
   return <>
-    <Box sx={{
+    <Button sx={{
       padding: 2,
       border: '1px solid grey',
       width: 90,
@@ -22,11 +14,9 @@ export default function LetterKey({letter} : {letter: string}) {
       justifyContent: "center",
       fontSize: 30
     }}
-       onMouseDown={onRippleStart}
-       onMouseUp={onRippleStop}
+       onClick={() => handleClick(letter)}
     >
       {letter}
-      <TouchRipple ref={rippleRef}/>
-    </Box>
+    </Button>
   </>
 }

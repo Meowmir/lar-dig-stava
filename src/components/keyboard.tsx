@@ -1,7 +1,7 @@
 import LetterKey from "./letterKey.tsx";
 import {Box} from "@mui/material";
 
-export default function Keyboard(){
+export default function Keyboard({onAdd}: {onAdd: (letter: string) => void}) {
   const sweAlfa = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Å", "Ä", "Ö"]
 
   return <>
@@ -15,7 +15,7 @@ export default function Keyboard(){
       position: "absolute"
     }}>
         {sweAlfa.map((letter) =>
-          <LetterKey letter={letter} key={letter}/>
+          <LetterKey letter={letter} onClick={onAdd} key={letter}/>
         )}
     </Box>
   </>
